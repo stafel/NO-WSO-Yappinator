@@ -66,9 +66,9 @@ namespace WSOYappinator
                 "Play the Idle event if no voiceline has successfully played for this many seconds. Set to 0 to disable."
             );
 
-            lowAltitude = Config.Bind("General", "Low altitude below", 5f);
-            highAltitude = Config.Bind("General", "High altitude above", 15000f);
-            fuelRatioBingo =  Config.Bind("General", "Bingo fuel below ratio", 0.2f, new ConfigDescription("Ratio below the bingo fuel event is trigger", new AcceptableValueRange<float>(0.01f, 1f)));
+            lowAltitude = Config.Bind("Event", "Low altitude below", 5f);
+            highAltitude = Config.Bind("Event", "High altitude above", 15000f);
+            fuelRatioBingo =  Config.Bind("Event", "Bingo fuel below ratio", 0.2f, new ConfigDescription("Ratio below the bingo fuel event is trigger", new AcceptableValueRange<float>(0.01f, 1f)));
 
             string[] sets = AudioPackDiscovery.Discover(_audioRoot);
             string firstSet = sets.Length == 0 ? "" : sets[0];
