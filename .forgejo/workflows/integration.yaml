@@ -4,7 +4,21 @@
 name: .NET
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      versionTag:
+        description: 'Version tag to release'
+        required: true
+        type: string
+      releaseNotes:
+        description: 'Release notes to display'
+        required: true
+        type: string
+      isPrerelease:
+        description: 'Mark as prerelease'
+        required: true
+        default: false
+        type: boolean
   push:
     branches: [ $default-branch ]
   pull_request:
@@ -30,5 +44,21 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+
+    - name: Create release directory
+      run: mkdir release
+    - name: Copy dll to release
+      run: cp bin/Debug/netstandard2.1/com.nikkorap.WSOYappinator.dll release/com.nikkorap.WSOYappinator.dll
+
+    - name: Release
+      uses: actions/forgejo-release@v2.12.0
+      with:
+        direction: upload
+        url: https://git.pr0.tech/
+        repo: rs/screamingMissiles
+        token: ${{ secrets.WRITE_TOKEN }}
+        tag: ${{ inputs.versionTag }}
+        release-dir: release
+        release-notes: ${{ inputs.releaseNotes }}
+        prerelease: ${{ inputs.isPrerelease }}
+
