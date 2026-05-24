@@ -29,46 +29,11 @@
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.*" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="stafelstr.nonuget" Version="1.0.0" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>../NOManaged/Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Mirage">
-      <HintPath>../NOManaged/Mirage.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>../NOManaged/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>../NOManaged/UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.WebBrowser">
-      <HintPath>../NOManaged/Mono.WebBrowser.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.ApplicationServices">
-      <HintPath>../NOManaged/System.Web.ApplicationServices.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Services">
-      <HintPath>../NOManaged/System.Web.Services.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>../NOManaged/UnityEngine.AudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>../NOManaged/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>../NOManaged/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>../NOManaged/UnityEngine.UnityWebRequestModule.dll</HintPath>
-    </Reference> 
   </ItemGroup>
   
   <ItemGroup>
